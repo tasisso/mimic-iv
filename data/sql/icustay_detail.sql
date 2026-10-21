@@ -81,8 +81,8 @@ SELECT
     , t.hospstay_seq
     , t.first_hosp_stay
     , t.admission_age
-    , ['<18', '18-25', '26-35', '36-45', '46-55', '56-65', '66-75', '76-85', '85>'][OFFSET(
-        RANGE_BUCKET(t.admission_age, [18, 26, 36, 46, 56, 66, 76, 86]) -- right-inclusive edges
+    , ['<46', '46-55', '56-65', '66-75', '76+'][OFFSET(
+        RANGE_BUCKET(t.admission_age, [46, 56, 66, 76]) -- right-inclusive edges
     )] AS age_grouped
     , t.race
     , t.ethnicity_grouped
